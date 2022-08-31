@@ -1,0 +1,11 @@
+<div appScrollEvent (onScrollBottom)="handleScrollBottom()"
+  class="grid grid-cols-12 xl:gap-12 lg:gap-14 md:gap-16 sm:gap-20 gap-32">
+  <ng-container *ngIf="listGif">
+    <div *ngFor="let item of listGif" class="xl:col-span-3 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-12">
+      <app-card [image]="item.images.downsized.url" [cardTitle]="item.title"></app-card>
+    </div>
+  </ng-container>
+  <div *ngIf="isLoading" class="col-span-12">
+    <app-loading></app-loading>
+  </div>
+</div>
