@@ -23,15 +23,15 @@ export class InputComponent implements OnInit {
   @Input('debounce') debounce: number = this.DEFAULT_DEBOUNCE;
   @Output('onValueChange') onValueChange = new EventEmitter<string>();
   constructor() {}
-  inputValueSubject = new Subject();
+  inputValueSubject = new Subject<string>();
 
   ngOnInit(): void {
     this.inputValueSubject
       .pipe(debounceTime(this.debounce), distinctUntilChanged())
-      .subscribe(() => this.onValueChange);
+      .subscribe(val => this.onValueChange.emit(val));
   }
 
   handleInputChange(value: string) {
-    this.inputValueSubject.next(value)
+    this.inputValueSubject.next(value);
   }
 }

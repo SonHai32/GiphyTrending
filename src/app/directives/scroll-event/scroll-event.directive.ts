@@ -1,7 +1,6 @@
 import { Directive, EventEmitter, Output } from '@angular/core';
 import * as $ from 'jquery';
 import {
-  BehaviorSubject,
   debounceTime,
   distinctUntilChanged,
   fromEvent,

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScrollEventDirective } from '../scroll-event.directive';
+import { ScrollEventDirective } from './scroll-event.directive';
 
 @NgModule({
   declarations: [ScrollEventDirective],

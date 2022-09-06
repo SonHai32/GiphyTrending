@@ -1,5 +1,5 @@
 <div class="relative">
-  <input #input (change)="handleInputChange(input.value)" class="placeholder:text-lg placeholder:italic w-full py-3 pl-3 pr-12 text-md text-lg border-2 border-gray-200 rounded" type="{{type}}"
+  <input #input (input)="handleInputChange(input.value)" class="placeholder:text-lg placeholder:italic w-full py-3 pl-3 pr-12 text-md text-lg border-2 border-gray-200 rounded" type="{{type}}"
     placeholder="{{placeholder}}" />
   <span *ngIf="icon" class="absolute text-gray-500 -translate-y-1/2 pointer-events-none top-1/2 right-4">
     <ng-container *ngTemplateOutlet="icon"></ng-container>

@@ -1,0 +1,77 @@
+<div *ngIf="gifDetail" class="grid grid-cols-12">
+  <div
+    class="xl:col-span-3 lg:col-span-3 md:col-span-12 sm:col-span-12 p-2 flex flex-col items-start justify-start gap-2">
+    <div class="">
+      <div class="flex items-center justify-start gap-2">
+        <div class="flex flex-col justify-center items-start">
+          <h3 class="text-lg text-neon-n-pink font-semibold">
+            User: {{gifDetail.user ? gifDetail.user.display_name : 'N/A'}}
+          </h3>
+          <h4 class="text-sm text-slate-400 italic">@{{gifDetail.user ? gifDetail.user.username : 'N/A'}}</h4>
+        </div>
+      </div>
+      <div>
+        <span class="text-base text-neon-n-purle-2 font-semibold">Description: </span>
+        <span class="text-base text-slate-400">
+          {{gifDetail.user ? gifDetail.user.description: 'N/A'}}
+        </span>
+      </div>
+      <div>
+        <span class="text-base text-neon-n-purle-2 font-semibold">Date: </span>
+        <span class="text-base text-slate-400">{{gifDetail.import_datetime | date:'dd/MM/yyyy'}}</span>
+      </div>
+      <div *ngIf="gifDetail.user" class="flex flex-col">
+        <span class="text-base font-semibold">Follow on : </span>
+        <div class="w-full flex flex-wrap gap-2 mt-0.5">
+          <img class="h-8 w-8 object-cover" src="../../../assets/images/facebook.png" alt="">
+          <img class="h-8 w-8 object-cover" src="../../../assets/images/instagram.png" alt="">
+          <img class="h-8 w-8 object-cover" src="../../../assets/images/twitter.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="xl:col-span-6 lg:col-span-6 md:col-span-12 sm:col-span-12 md:order-first sm:order-first flex justify-center">
+    <div class="flex flex-col">
+      <h3 *ngIf="gifDetail.title" class="w-full text-lg text-neon-n-pink font-semibold mb-2">
+        {{gifDetail.title}}
+      </h3>
+      <app-card-gradient [template]="image">
+      </app-card-gradient>
+      <ng-template #image>
+        <img class="object-cover h-96" src="{{gifDetail.images.original.url}}" alt="" />
+      </ng-template>
+    </div>
+  </div>
+  <div class="xl:col-span-3 lg:col-span-3 md:col-span-12 sm:col-span-12 flex justify-start">
+    <div class="flex flex-col items-center">
+      <h4 class="text-lg w-full text-neon-n-pink">Share on</h4>
+      <div class="w-full flex flex-wrap gap-2 rounded-md">
+        <a target="_blank" rel="noopener noreferrer" href="{{'https://twitter.com/intent/tweet?text=' + gifDetail.url}}" class="group">
+          <img class="h-10 w-10 object-cover absolute group-hover:opacity-0" src="../../../assets/icons/twitter.png"
+            alt="">
+          <ng-lottie [width]="'40px'" [height]="'40px'" class="group-hover:opacity-100 opacity-0"
+            [options]="animateIconPath.twitter.option"></ng-lottie>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="{{'https://www.facebook.com/sharer.php?u=' + gifDetail.url}}" class="group">
+          <img class="h-10 w-10 object-cover absolute group-hover:opacity-0" src="../../../assets/icons/facebook.png"
+            alt="">
+          <ng-lottie [width]="'40px'" [height]="'40px'" class="group-hover:opacity-100 opacity-0"
+            [options]="animateIconPath.facebook.option"></ng-lottie>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="{{'https://www.instagram.com/?url=' + gifDetail.url}}" class="group">
+          <img class="h-10 w-10 object-cover absolute group-hover:opacity-0" src="../../../assets/icons/instagram.png"
+            alt="">
+          <ng-lottie [width]="'40px'" [height]="'40px'" class="group-hover:opacity-100 opacity-0"
+            [options]="animateIconPath.ins.option"></ng-lottie>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="{{'http://pinterest.com/pin/create/link/?url=' + gifDetail.url}}" class="group">
+          <img class="h-10 w-10 object-cover absolute group-hover:opacity-0" src="../../../assets/icons/pinterest.png"
+            alt="">
+          <ng-lottie [width]="'40px'" [height]="'40px'" class="group-hover:opacity-100 opacity-0"
+            [options]="animateIconPath.pinterest.option"></ng-lottie>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

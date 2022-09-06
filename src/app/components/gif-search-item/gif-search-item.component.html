@@ -1,7 +1,7 @@
-<a
+<a *ngIf="imageUrl"
+[routerLink]="[id]"
   class="flex w-full p-2 items-center justify-start gap-5 border-b-2 border-dashed border-b-slate-300 hover:bg-slate-100">
-  <img
-    src="https://media0.giphy.com/media/Z4K8wAKa15UZJiJhJ0/giphy-downsized.gif?cid=d0912e68nprz7oqaattsmmjpk9s1y0op4gq0n0inykk8jfvq&rid=giphy-downsized.gif&ct=g"
-    alt="" class="object-cover 2xl:h-16 2xl:w-16 xl:h-16 xl:w-16 lg:h-16 lg:w-16 md:h-16 md:w-16 h-8 w-8">
-  <span class="text-lg font-semibold">image name</span>
+  <img src="{{imageUrl}}" alt=""
+    class="object-cover 2xl:h-16 2xl:w-16 xl:h-16 xl:w-16 lg:h-16 lg:w-16 md:h-16 md:w-16 h-8 w-8">
+  <span *ngIf="imageTitle" class="text-lg font-semibold">{{imageTitle}}</span>
 </a>
